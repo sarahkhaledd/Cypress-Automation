@@ -12,15 +12,28 @@
 // -- This is a parent command --
 Cypress.Commands.add('login', (username, password) => { 
     cy.visit('https://www.saucedemo.com')
-      cy.get('[data-test="username"]').type(username)
-      cy.get('[data-test="password"]').type(password)
-      cy.get('[data-test="login-button"]').click()
-      //cy.url().should('be.equal', url)
+    cy.get('[data-test="username"]').type(username)
+    cy.get('[data-test="password"]').type(password)
+    cy.get('[data-test="login-button"]').click()
     });//
 //
 // -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
+Cypress.Commands.add('addToCard', (excpectedOutput) => { 
+  cy.login('performance_glitch_user', 'secret_sauce')
+  cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click()
+  cy.get('.shopping_cart_link').click()
+  cy.get('.cart_item').should('have.length', excpectedOutput)
+  cy.url().should('be.equal', cardPage)
+});
+
+Cypress.Commands.add('removeFromCard', (excpectedOutput) => { 
+  cy.login('performance_glitch_user', 'secret_sauce',homePage)
+  cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click()
+  cy.get('[data-test="remove-sauce-labs-backpack"]').click()
+  cy.get('.shopping_cart_link').click()
+  cy.get('.cart_item').should('have.length', excpectedOutput)
+  cy.url().should('be.equal', cardPage)
+});
 //
 // -- This is a dual command --
 // Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
