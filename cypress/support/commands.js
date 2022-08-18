@@ -18,13 +18,13 @@ Cypress.Commands.add('login', (username, password) => {
     });//
 //
 // -- This is a child command --
-Cypress.Commands.add('addToCard', () => { 
+Cypress.Commands.add('addToCart', () => { 
   cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click()
   cy.get('.shopping_cart_link').click()
   cy.get('.cart_item')
 });
 
-Cypress.Commands.add('removeFromCard', () => { 
+Cypress.Commands.add('removeFromCart', () => { 
   cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click()
   cy.get('[data-test="remove-sauce-labs-backpack"]').click()
   cy.get('.shopping_cart_link').click()
