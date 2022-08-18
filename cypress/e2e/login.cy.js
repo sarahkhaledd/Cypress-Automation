@@ -9,19 +9,19 @@ describe('Swag Labs Login Test Scenarios', () => {
   })
   //Correct username & incorrect Password
   it('Negative Login Scenario', () => {
-    cy.login('performance_glitch_user', '1234')
+    cy.login('performance_glitch_user', '1234').url().should('be.equal', loginPage)
   })
   //inCorrect username & correct Password
   it('Negative Login Scenario', () => {
-    cy.login('user', 'secret_sauce')
+    cy.login('user', 'secret_sauce').url().should('be.equal', loginPage)
   })
   //Not existing user
   it('Negative Login Scenario', () => {
-    cy.login('sarahkh', '@66SS')
+    cy.login('sarahkh', '@66SS').url().should('be.equal', loginPage)
   })
   //Empty fields
   it('Negative Login Scenario', () => {
-    cy.login('\n', '\n')
+    cy.login('\n', '\n').url().should('be.equal', loginPage)
   })
 
 })
