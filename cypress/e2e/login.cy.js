@@ -8,9 +8,9 @@ export function login(username, password) {
     cy.get('[data-test="password"]').type(password)
     cy.get('[data-test="login-button"]').click()
     cy.url().should('be.equal', url)
-}
+}    
 
-/*describe('Swag Labs Login Test Scenarios', () => {
+describe('Swag Labs Login Test Scenarios', () => {
   //Correct username & correct Password
   it('Positive Login Scenario', () => {
     
@@ -37,4 +37,4 @@ export function login(username, password) {
     login(' ', ' ')
   })
 
-})*/
+})
