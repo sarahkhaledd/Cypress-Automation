@@ -15,7 +15,7 @@ export function addAndRemoveToCard(count) {
     cy.url().should('be.equal', cardPage)
 }
 
-/*describe('Swag Labs Adding&removing items to the Cart Test Scenarios', () => {
+describe('Swag Labs Adding&removing items to the Cart Test Scenarios', () => {
   //add a item to the card & the card will has a one item
   it('Positive Add To Cart Scenario', () => {
     login('performance_glitch_user', 'secret_sauce')
@@ -29,7 +29,7 @@ export function addAndRemoveToCard(count) {
   })
 
   /* --------------------------------------------------------------- */ 
-/*
+
   //add a item to the card & then remove it , card will be empty
   it('Positive Remove To Cart Scenario', () => {
     login('performance_glitch_user', 'secret_sauce')
@@ -45,4 +45,4 @@ export function addAndRemoveToCard(count) {
     addAndRemoveToCard(1)
   })
 
-})*/
+})
