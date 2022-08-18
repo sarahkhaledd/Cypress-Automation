@@ -18,21 +18,17 @@ Cypress.Commands.add('login', (username, password) => {
     });//
 //
 // -- This is a child command --
-Cypress.Commands.add('addToCard', (excpectedOutput) => { 
-  cy.login('performance_glitch_user', 'secret_sauce')
+Cypress.Commands.add('addToCard', () => { 
   cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click()
   cy.get('.shopping_cart_link').click()
-  cy.get('.cart_item').should('have.length', excpectedOutput)
-  cy.url().should('be.equal', cardPage)
+  cy.get('.cart_item')
 });
 
-Cypress.Commands.add('removeFromCard', (excpectedOutput) => { 
-  cy.login('performance_glitch_user', 'secret_sauce',homePage)
+Cypress.Commands.add('removeFromCard', () => { 
   cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click()
   cy.get('[data-test="remove-sauce-labs-backpack"]').click()
   cy.get('.shopping_cart_link').click()
-  cy.get('.cart_item').should('have.length', excpectedOutput)
-  cy.url().should('be.equal', cardPage)
+  cy.get('.cart_item')
 });
 //
 // -- This is a dual command --
