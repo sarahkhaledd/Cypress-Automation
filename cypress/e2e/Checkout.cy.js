@@ -23,6 +23,8 @@ describe('Swag Labs Login Test Scenarios', () => {
   it('Negative Checkout Process Scenario', () => {
     login('performance_glitch_user', 'secret_sauce')
     addAndRemoveToCard(1)
-    checOut(' ',' ',' ')
+    cy.get('[data-test="checkout"]').click()
+    cy.get('[data-test="continue"]').click()
+  
   })
 })
