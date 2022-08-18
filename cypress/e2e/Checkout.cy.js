@@ -16,13 +16,13 @@ describe('Swag Labs Login Test Scenarios', () => {
   //Correct Checkout Process 
   it('Positive Checkout Process Scenario', () => {
     cy.login('performance_glitch_user', 'secret_sauce')
-    cy.addToCard()
+    cy.addToCart()
     checkOut("sarah","khaled","8655")
   })
   //empty information fields for Checkout Process 
   it('Negative Checkout Process Scenario', () => {
     cy.login('performance_glitch_user', 'secret_sauce')
-    cy.addToCard()
+    cy.addToCart()
     cy.get('[data-test="checkout"]').click()
     cy.get('[data-test="continue"]').click()
     cy.url().should('be.equal', infoPage)
